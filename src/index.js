@@ -1,13 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import {createStore, applyMiddleware, compose} from 'redux'
+import thunk from 'redux-thunk'
+import { Provider } from 'react-redux'
+import {BrowserRouter as Router} from 'react-router-dom'
+import userReducer from './reducers/userReducer'
+
 import App from './App';
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+let store = createStore(userReducer, composeEnhancers(applyMiddleware(thunk)))
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-
+  <Provider store={store}>
+    <Router>
+      <App />
+    </Router>
+  </Provider>,
+  document.getElementById('root'));

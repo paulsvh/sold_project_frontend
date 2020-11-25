@@ -1,15 +1,7 @@
-import './App.css';
+import React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      WE ON
-    </div>
-  );
+class App extends React.Component {
+  render(){
+    return(console.log('hello'))
+  }
 }
-fetch(`/test`)
-  .then(response => response.json())
-  .then(parsedResponse => console.log(parsedResponse));
-
-
-export default App;
