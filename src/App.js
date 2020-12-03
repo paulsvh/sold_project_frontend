@@ -2,6 +2,9 @@ import React from 'react';
 
 class App extends React.Component {
   render(){
-    return(console.log('hello'))
+    return(
+      <div>Hello</div>
+    )
   }
 }
+export default App;
