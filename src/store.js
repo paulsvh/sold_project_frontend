@@ -1,7 +1,6 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
 import thunk from 'redux-thunk'
 
-// just displaying different syntax options here (lines 8 and 9)
 const reducer = combineReducers({
 
 })
