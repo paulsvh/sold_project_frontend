@@ -19,11 +19,4 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = ({currentUser}) => {
-  return {
-    currentUser
-  }
-}
-
-
 export default connect(null, {getCurrentUser})(App);
