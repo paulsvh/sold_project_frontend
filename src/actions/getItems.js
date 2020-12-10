@@ -21,7 +21,7 @@ export const getItems = () => {
             if (response.error){
                 alert(response.error)
             } else {
-                dispatch(setItems([]))
+                dispatch(setItems(response))
             }
         })
         .catch(console.log)
