@@ -4,7 +4,7 @@ import ItemCard from './ItemCard.js'
 
 
 const Items = props => {
-    const itemCards = props.items.map(item => <ItemCard item={item} key={item.id}/>)
+    const itemCards = props.items.map((item, index) => <ItemCard item={item} key={index}/>)
     return(
         itemCards
     )

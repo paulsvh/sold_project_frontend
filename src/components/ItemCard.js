@@ -8,7 +8,6 @@ const ItemCard = ({item}) => {
             <p>{item.description}</p>
             <p>{item.condition}</p>
             <p>{item.value}</p>
-            <p>{item.image[0]}</p>
 
             <br/>
         </div>
