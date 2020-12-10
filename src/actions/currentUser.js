@@ -1,4 +1,5 @@
 import {resetLoginForm} from './loginForm.js'
+import {getItems} from './getItems.js'
 
 export const setCurrentUser = user => {
     return {
@@ -8,7 +9,6 @@ export const setCurrentUser = user => {
 }
 
 export const login = credentials => {
-    console.log("credentials are", credentials)
     return dispatch => {
         return fetch("http://localhost:3001/api/login", {
             credentials: "include",
@@ -46,6 +46,8 @@ export const getCurrentUser = () => {
                 alert(user.error)
             } else {
                 dispatch(setCurrentUser(user))
+                dispatch(getItems())
+
             }
         })
         .catch(console.log)
