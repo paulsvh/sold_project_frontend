@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {getCurrentUser} from './actions/currentUser.js'
 import Nav from './components/Nav.js'
 import MainContainer from './components/MainContainer.js'
-import {Route} from 'react-router-dom'
+import {Route, Switch} from 'react-router-dom'
 import Login from './components/Login.js'
 import Logout from './components/Logout.js'
 import MyItems from './components/MyItems.js'
@@ -19,12 +19,11 @@ class App extends React.Component {
     const {loggedIn} = this.props
     return (
       <div className="App">
-        <Nav/>
+        {loggedIn ? <Nav/> : null}
+        <Route exact path='/' render={()=> loggedIn ? <MyItems/> : <Welcome/>}/>
         <Route exact path='/signup' component={SignUp}/>
         <Route exact path='/login' component={Login}/>
-        <Route exact path='/logout' component={Logout}/>
         <Route exact path='/items' component={MyItems}/>
-        <Route exact path='/' render={()=> loggedIn ? <MyItems/> : <Welcome/>}/>
       </div>
     )
   }

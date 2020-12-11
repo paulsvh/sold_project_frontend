@@ -5,7 +5,7 @@ import Logout from './Logout.js'
 const Nav = ({currentUser}) => {
     return(
         <div>
-            {currentUser ? <Logout/> : ''}
+            Welcome, {currentUser.username}. <Logout/>
         </div>
     )
 }
