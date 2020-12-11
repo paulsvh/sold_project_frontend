@@ -1,10 +1,10 @@
 import React from 'react'
-import Items from './Items.js'
+import MyItems from './MyItems.js'
 
 const MainContainer = () => {
     return (
         <div className='MainContainer'>
-            <Items/>
+            <MyItems/>
         </div>
     )
 }

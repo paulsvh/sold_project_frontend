@@ -1,6 +1,6 @@
 import {resetLoginForm} from './loginForm.js'
 import {resetSignUpForm} from './signUpForm.js'
-import {getItems} from './getItems.js'
+import {getMyItems} from './MyItems.js'
 
 export const setCurrentUser = user => {
     return {
@@ -25,6 +25,7 @@ export const login = credentials => {
                 alert(user.error)
             } else {
                 dispatch(setCurrentUser(user))
+                dispatch(getMyItems())
                 dispatch(resetLoginForm())
             }
         })
@@ -51,7 +52,7 @@ export const signUpRequest = (credentials) => {
             alert(response.error)
           } else {
             dispatch(setCurrentUser(response.data))
-            dispatch(getItems())
+            dispatch(getMyItems())
             dispatch(resetSignUpForm())
           }
         })
@@ -74,7 +75,7 @@ export const getCurrentUser = () => {
                 console.log(user.error)
             } else {
                 dispatch(setCurrentUser(user))
-                dispatch(getItems())
+                dispatch(getMyItems())
 
             }
         })
