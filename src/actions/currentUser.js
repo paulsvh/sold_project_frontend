@@ -1,4 +1,5 @@
 import {resetLoginForm} from './loginForm.js'
+import {resetSignUpForm} from './signUpForm.js'
 import {getItems} from './getItems.js'
 
 export const setCurrentUser = user => {
@@ -30,6 +31,33 @@ export const login = credentials => {
         .catch(console.log)
     }
 }
+
+export const signUpRequest = (credentials) => {
+    return dispatch => {
+      const userInfo = {
+        user: credentials
+      }
+      return fetch("http://localhost:3001/api/signup", {
+        credentials: "include",
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userInfo)
+      })
+        .then(r => r.json())
+        .then(response => {
+          if (response.error) {
+            alert(response.error)
+          } else {
+            dispatch(setCurrentUser(response.data))
+            dispatch(getItems())
+            dispatch(resetSignUpForm())
+          }
+        })
+        .catch(console.log)
+    }
+  }
 
 export const getCurrentUser = () => {
     return dispatch => {
