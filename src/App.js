@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {getCurrentUser} from './actions/currentUser.js'
 import Nav from './components/Nav.js'
 import MainContainer from './components/MainContainer.js'
-import {Route, Switch} from 'react-router-dom'
+import {Route, Switch, withRouter} from 'react-router-dom'
 import Login from './components/Login.js'
 import MyItems from './components/MyItems.js'
 import SignUp from './components/SignUp.js'
@@ -34,4 +34,4 @@ const mapStateToProps = state => {
   })
 }
 
-export default connect(mapStateToProps, {getCurrentUser})(App);
+export default withRouter(connect(mapStateToProps, {getCurrentUser})(App))
