@@ -8,6 +8,7 @@ import Login from './components/Login.js'
 import MyItems from './components/MyItems.js'
 import SignUp from './components/SignUp.js'
 import Welcome from './components/Welcome.js'
+import NewItemForm from './components/NewItemForm.js'
 
 class App extends React.Component {
 
@@ -23,6 +24,7 @@ class App extends React.Component {
         <Route exact path='/signup' component={SignUp}/>
         <Route exact path='/login' component={Login}/>
         <Route exact path='/items' component={MyItems}/>
+        <Route exact path='/items/new' component={NewItemForm}/>
       </div>
     )
   }

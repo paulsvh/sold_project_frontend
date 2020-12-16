@@ -1,6 +1,6 @@
 import {resetLoginForm} from './loginForm.js'
 import {resetSignUpForm} from './signUpForm.js'
-import {getMyItems} from './MyItems.js'
+import {getMyItems} from './myItems.js'
 
 export const setCurrentUser = user => {
     return {

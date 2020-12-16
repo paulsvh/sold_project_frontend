@@ -1,3 +1,5 @@
+import {resetNewItemForm} from './newItemForm.js'
+
 export const setMyItems = items => {
     return {
         type: "SET_MY_ITEMS",
@@ -5,7 +7,18 @@ export const setMyItems = items => {
     }
 }
 
+export const clearItems = () => {
+    return {
+        type: "CLEAR_ITEMS"
+    }
+}
 
+export const addItem = item => {
+    return {
+        type: "ADD_ITEM",
+        item
+    }
+}
 
 export const getMyItems = () => {
     return dispatch => {
@@ -25,5 +38,36 @@ export const getMyItems = () => {
             }
         })
         .catch(console.log)
+    }
+}
+
+export const createItem = itemData => {
+    return dispatch => {
+        const sendableItemData = {
+            title: itemData.title,
+            description: itemData.description,
+            condition: itemData.condition,
+            value: itemData.value,
+            image: itemData.image,
+            user_id: itemData.userId
+        }
+        return fetch("http://localhost:3001/api/items", {
+            credentials: "include",
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(sendableItemData)
+        })
+        .then(r => r.json())
+        .then(item => {
+            if (item.error) {
+                alert(item.error)
+              } else {
+                dispatch(addItem(item))
+                dispatch(resetNewItemForm())
+    
+              }
+        })
     }
 }
