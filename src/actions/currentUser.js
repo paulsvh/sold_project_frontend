@@ -34,7 +34,7 @@ export const login = (credentials, history) => {
     }
 }
 
-export const signUpRequest = (credentials) => {
+export const signUpRequest = (credentials, history) => {
     return dispatch => {
       const userInfo = {
         user: credentials
@@ -48,13 +48,15 @@ export const signUpRequest = (credentials) => {
         body: JSON.stringify(userInfo)
       })
         .then(r => r.json())
-        .then(response => {
-          if (response.error) {
-            alert(response.error)
+        .then(user => {
+          if (user.error) {
+            alert(user.error)
           } else {
-            dispatch(setCurrentUser(response.data))
+            dispatch(setCurrentUser(user))
             dispatch(getMyItems())
             dispatch(resetSignUpForm())
+            history.push('/')
+
           }
         })
         .catch(console.log)
