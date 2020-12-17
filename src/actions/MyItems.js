@@ -1,4 +1,4 @@
-import {resetNewItemForm} from './newItemForm.js'
+import {resetSignUpForm} from './signUpForm.js'
 
 export const setMyItems = items => {
     return {
@@ -46,7 +46,6 @@ export const createItem = itemData => {
         const sendableItemData = {
             title: itemData.title,
             description: itemData.description,
-            condition: itemData.condition,
             value: itemData.value,
             user_id: itemData.userId
         }
@@ -56,15 +55,16 @@ export const createItem = itemData => {
             headers: {
               "Content-Type": "application/json"
             },
-            body: JSON.stringify(sendableItemData),
+            body: JSON.stringify(sendableItemData)
         })
         .then(r => r.json())
         .then(item => {
             if (item.error) {
                 alert(item.error)
               } else {
+                
+                dispatch(resetSignUpForm())
                 dispatch(addItem(item))
-                dispatch(resetNewItemForm())
     
               }
         })

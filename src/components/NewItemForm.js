@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import {createItem} from '../actions/myItems.js'
 
 
-const NewItemForm = ({newItemFormData, updateNewItemForm, createItem, userId}) => {
+    const NewItemForm = ({newItemFormData, updateNewItemForm, createItem, userId}) => {
    
     const handleChange = event => {
         const {name, value} = event.target
@@ -20,34 +20,37 @@ const NewItemForm = ({newItemFormData, updateNewItemForm, createItem, userId}) =
         }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input 
-            placeholder="Item Listing Title"
-            name="title" 
-            onChange={handleChange} 
-            value={newItemFormData.title} 
-            />
-            <input 
-            placeholder="Item Description"
-            name="description" 
-            onChange={handleChange} 
-            value={newItemFormData.description} 
-            />
-            <input 
-            placeholder="Item Condition"
-            name="condition" 
-            onChange={handleChange} 
-            value={newItemFormData.condition} 
-            />
-            <input
-            placeholder="Item Value" 
-            name="value" 
-            onChange={handleChange} 
-            value={newItemFormData.value} 
-            />
-            <input type="submit" value="Let's Sell This Thang!"/>
-
-        </form>
+        <div>
+            <form onSubmit={handleSubmit}>
+                <input 
+                placeholder="Item Listing Title"
+                name="title" 
+                onChange={handleChange} 
+                value={newItemFormData.title} 
+                />
+                <input 
+                placeholder="Item Description"
+                name="description" 
+                onChange={handleChange} 
+                value={newItemFormData.description} 
+                />
+                <input 
+                placeholder="Item Condition"
+                name="condition" 
+                onChange={handleChange} 
+                value={newItemFormData.condition} 
+                />
+                <input
+                placeholder="Item Value" 
+                name="value" 
+                onChange={handleChange} 
+                value={newItemFormData.value} 
+                />
+                <br/>
+ 
+                <input type="submit" value="Let's Sell This Thang!"/>
+            </form>
+        </div>
     )}
 
     const mapStateToProps = state => {
@@ -59,4 +62,3 @@ const NewItemForm = ({newItemFormData, updateNewItemForm, createItem, userId}) =
     }
 
 export default connect(mapStateToProps, {updateNewItemForm, createItem})(NewItemForm);
-
