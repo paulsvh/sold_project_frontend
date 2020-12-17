@@ -48,7 +48,6 @@ export const createItem = itemData => {
             description: itemData.description,
             condition: itemData.condition,
             value: itemData.value,
-            image: itemData.image,
             user_id: itemData.userId
         }
         return fetch("http://localhost:3001/api/items", {
@@ -57,7 +56,7 @@ export const createItem = itemData => {
             headers: {
               "Content-Type": "application/json"
             },
-            body: JSON.stringify(sendableItemData)
+            body: JSON.stringify(sendableItemData),
         })
         .then(r => r.json())
         .then(item => {

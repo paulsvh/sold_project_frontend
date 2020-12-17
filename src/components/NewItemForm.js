@@ -5,6 +5,7 @@ import {createItem} from '../actions/myItems.js'
 
 
 const NewItemForm = ({newItemFormData, updateNewItemForm, createItem, userId}) => {
+   
     const handleChange = event => {
         const {name, value} = event.target
         updateNewItemForm(name, value)
@@ -43,14 +44,6 @@ const NewItemForm = ({newItemFormData, updateNewItemForm, createItem, userId}) =
             name="value" 
             onChange={handleChange} 
             value={newItemFormData.value} 
-            />
-            <input
-            placeholder="Item Image" 
-            name="image" 
-            type="file" 
-            accept=".png, .jpg, .jpeg" 
-            onChange={handleChange} 
-            value={newItemFormData.image}
             />
             <input type="submit" value="Let's Sell This Thang!"/>
 

@@ -3,7 +3,6 @@ const initialState = {
     description: '',
     condition: '',
     value: '',
-    image: '',
 }
 
 export default (state = initialState, action) => {
