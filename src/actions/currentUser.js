@@ -27,7 +27,7 @@ export const login = (credentials, history) => {
                 dispatch(setCurrentUser(user))
                 dispatch(getMyItems())
                 dispatch(resetLoginForm())
-                history.push('/')
+                history.push('/items')
             }
         })
         .catch(console.log)

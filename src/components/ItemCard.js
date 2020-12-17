@@ -4,10 +4,10 @@ import React from 'react'
 const ItemCard = ({item}) => {
     return(
         <div>
-            <p>{item.title}</p>
-            <p>{item.description}</p>
-            <p>{item.condition}</p>
-            <p>{item.value}</p>
+            <p>Title: {item.title}</p>
+            <p>Description: {item.description}</p>
+            <p>Condition: {item.condition}</p>
+            <p>Value: {item.value}</p>
             <img src={item.image} alt=""/>
 
             <br/>
