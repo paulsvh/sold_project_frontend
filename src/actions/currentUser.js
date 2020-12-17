@@ -9,6 +9,12 @@ export const setCurrentUser = user => {
     }
 }
 
+export const clearCurrentUser = () => {
+    return {
+        type: "CLEAR_CURRENT_USER"
+    }
+}
+
 export const login = (credentials, history) => {
     return dispatch => {
         return fetch("http://localhost:3001/api/login", {
@@ -93,11 +99,5 @@ export const logout = () => {
             credentials: 'include',
             method: "DELETE"
         })
-    }
-}
-
-export const clearCurrentUser = () => {
-    return {
-        type: "CLEAR_CURRENT_USER"
     }
 }

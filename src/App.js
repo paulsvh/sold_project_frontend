@@ -1,8 +1,8 @@
 import React from 'react';
+import './App.css';
 import {connect} from 'react-redux'
 import {getCurrentUser} from './actions/currentUser.js'
 import Nav from './components/Nav.js'
-import MainContainer from './components/MainContainer.js'
 import {Route, Switch, withRouter} from 'react-router-dom'
 import Login from './components/Login.js'
 import MyItems from './components/MyItems.js'

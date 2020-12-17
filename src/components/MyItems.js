@@ -7,7 +7,7 @@ const myItems = props => {
     const itemCards = props.items.map(item => <ItemCard item={item} key={item.id}/>)
     return(
         <div>
-            <p><strong>My Items:</strong></p>
+            <p><strong>Your Items:</strong></p>
             {itemCards}
         </div>
     )
