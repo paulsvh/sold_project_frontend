@@ -1,6 +1,6 @@
 import {resetLoginForm} from './loginForm.js'
 import {resetSignUpForm} from './signUpForm.js'
-import {getMyItems} from './myItems.js'
+import {getMyItems, clearItems} from './myItems.js'
 
 export const setCurrentUser = user => {
     return {
@@ -95,6 +95,7 @@ export const getCurrentUser = () => {
 export const logout = () => {
     return dispatch => {
         dispatch(clearCurrentUser())
+        dispatch(clearItems())
         return fetch('http://localhost:3001/api/logout', {
             credentials: 'include',
             method: "DELETE"

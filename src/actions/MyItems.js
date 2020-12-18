@@ -1,5 +1,6 @@
 import {resetSignUpForm} from './signUpForm.js'
 
+
 export const setMyItems = items => {
     return {
         type: "SET_MY_ITEMS",
@@ -46,6 +47,7 @@ export const createItem = itemData => {
         const sendableItemData = {
             title: itemData.title,
             description: itemData.description,
+            condition: itemData.condition,
             value: itemData.value,
             user_id: itemData.userId
         }

@@ -20,11 +20,13 @@ class App extends React.Component {
     return (
       <div className="App">
         {loggedIn ? <Nav/> : null}
+        <Switch>
         <Route exact path='/' render={()=> loggedIn ? '' : <Welcome/>}/>
         <Route exact path='/signup' component={SignUp}/>
         <Route exact path='/login' component={Login}/>
         <Route exact path='/items' component={MyItems}/>
         <Route exact path='/items/new' component={NewItemForm}/>
+        </Switch>
       </div>
     )
   }

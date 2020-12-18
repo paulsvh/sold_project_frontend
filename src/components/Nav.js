@@ -6,7 +6,10 @@ import {NavLink} from 'react-router-dom'
 const Nav = ({currentUser}) => {
     return(
         <div className="NavBar">
-            Welcome, {currentUser.username}. <Logout/>
+            Welcome, {currentUser.username}.
+            <NavLink exact activeClassName="active" to="/items">My Items</NavLink>
+            <NavLink exact activeClassName="active" to="/items/new">Add A New Item</NavLink>
+            <Logout/>
         </div>
     )
 }

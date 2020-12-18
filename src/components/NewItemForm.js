@@ -15,7 +15,7 @@ import {createItem} from '../actions/myItems.js'
         event.preventDefault()
         createItem({
             ...newItemFormData,
-            userId
+            userId,
             })
         }
 
