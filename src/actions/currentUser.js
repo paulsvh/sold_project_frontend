@@ -100,4 +100,5 @@ export const logout = () => {
             method: "DELETE"
         })
     }
+
 }
