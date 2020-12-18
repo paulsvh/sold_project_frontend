@@ -42,7 +42,7 @@ export const getMyItems = () => {
     }
 }
 
-export const createItem = itemData => {
+export const createItem = (itemData, history) => {
     return dispatch => {
         const sendableItemData = {
             title: itemData.title,
@@ -67,7 +67,7 @@ export const createItem = itemData => {
                 
                 dispatch(resetSignUpForm())
                 dispatch(addItem(item))
-    
+                history.push(`/myitems/${item.id}`)
               }
         })
     }

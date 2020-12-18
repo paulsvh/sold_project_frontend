@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import {createItem} from '../actions/myItems.js'
 
 
-    const NewItemForm = ({newItemFormData, updateNewItemForm, createItem, userId}) => {
+const NewItemForm = ({newItemFormData, updateNewItemForm, createItem, userId, history}) => {
    
     const handleChange = event => {
         const {name, value} = event.target
@@ -16,8 +16,8 @@ import {createItem} from '../actions/myItems.js'
         createItem({
             ...newItemFormData,
             userId,
-            })
-        }
+        }, history)
+    }
 
     return (
         <div>
@@ -51,7 +51,7 @@ import {createItem} from '../actions/myItems.js'
                 <input type="submit" value="Let's Sell This Thang!"/>
             </form>
         </div>
-    )}
+)}
 
     const mapStateToProps = state => {
         const userId = state.currentUser ? state.currentUser.id : ''

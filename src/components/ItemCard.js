@@ -3,6 +3,7 @@ import React from 'react'
 
 const ItemCard = ({item}) => {
     return(
+        item ?
         <div>
             <p>Title: {item.title}</p>
             <p>Description: {item.description}</p>
@@ -11,7 +12,8 @@ const ItemCard = ({item}) => {
             <img src={item.image} alt=""/>
 
             <br/>
-        </div>
+        </div> :
+        <p>Item not found!</p>
     )
 }
 

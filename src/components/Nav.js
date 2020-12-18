@@ -7,8 +7,8 @@ const Nav = ({currentUser}) => {
     return(
         <div className="NavBar">
             Welcome, {currentUser.username}.
-            <NavLink exact activeClassName="active" to="/items">My Items</NavLink>
-            <NavLink exact activeClassName="active" to="/items/new">Add A New Item</NavLink>
+            <NavLink exact activeClassName="active" to="/myitems">My Items</NavLink>
+            <NavLink exact activeClassName="active" to="/myitems/new">Add A New Item</NavLink>
             <Logout/>
         </div>
     )

@@ -33,7 +33,7 @@ export const login = (credentials, history) => {
                 dispatch(setCurrentUser(user))
                 dispatch(getMyItems())
                 dispatch(resetLoginForm())
-                history.push('/items')
+                history.push('/myitems')
             }
         })
         .catch(console.log)
