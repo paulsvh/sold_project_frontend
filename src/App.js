@@ -32,6 +32,11 @@ class App extends React.Component {
           return <ItemCard item={item} {...props}/>
           }
         }/>
+        <Route exact path='/myitems/:id/edit' render={props => {
+          const item = myItems.find(item => item.id === props.match.params.id)
+          return <NewItemForm item={item} {...props}/>
+          }
+        }/>
         </Switch>
       </div>
     )

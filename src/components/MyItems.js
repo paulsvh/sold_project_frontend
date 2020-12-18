@@ -1,15 +1,14 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import ItemCard from './ItemCard.js'
+import {Link} from 'react-router-dom'
 
 
 const myItems = props => {
-    const itemCards = props.items.map(item => <ItemCard item={item} key={item.id}/>)
+    const itemCards = props.items.length > 0 ?
+    props.items.map(item => <Link to={`/myitems/${item.id}`} key={item.id}>{item.title}<br/></Link>) :
+    null
     return(
-        <div>
-            <p><strong>Your Items:</strong></p>
-            {itemCards}
-        </div>
+        itemCards
     )
 }
 
