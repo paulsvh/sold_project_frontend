@@ -1,20 +1,20 @@
 import React from 'react';
-import {updateNewItemForm} from '../actions/newItemForm.js'
+import {updateItemForm} from '../actions/ItemForm.js'
 import {connect} from 'react-redux'
 import {createItem} from '../actions/myItems.js'
 
 
-const NewItemForm = ({newItemFormData, updateNewItemForm, createItem, userId, history}) => {
+const ItemForm = ({itemFormData, updateItemForm, createItem, userId, history}) => {
    
     const handleChange = event => {
         const {name, value} = event.target
-        updateNewItemForm(name, value)
+        updateItemForm(name, value)
     }
 
     const handleSubmit = event => {
         event.preventDefault()
         createItem({
-            ...newItemFormData,
+            ...itemFormData,
             userId,
         }, history)
     }
@@ -26,25 +26,25 @@ const NewItemForm = ({newItemFormData, updateNewItemForm, createItem, userId, hi
                 placeholder="Item Listing Title"
                 name="title" 
                 onChange={handleChange} 
-                value={newItemFormData.title} 
+                value={itemFormData.title} 
                 />
                 <input 
                 placeholder="Item Description"
                 name="description" 
                 onChange={handleChange} 
-                value={newItemFormData.description} 
+                value={itemFormData.description} 
                 />
                 <input 
                 placeholder="Item Condition"
                 name="condition" 
                 onChange={handleChange} 
-                value={newItemFormData.condition} 
+                value={itemFormData.condition} 
                 />
                 <input
                 placeholder="Item Value" 
                 name="value" 
                 onChange={handleChange} 
-                value={newItemFormData.value} 
+                value={itemFormData.value} 
                 />
                 <br/>
  
@@ -56,9 +56,9 @@ const NewItemForm = ({newItemFormData, updateNewItemForm, createItem, userId, hi
     const mapStateToProps = state => {
         const userId = state.currentUser ? state.currentUser.id : ''
         return {
-            newItemFormData: state.newItemForm,
+            itemFormData: state.itemForm,
             userId
         }
     }
 
-export default connect(mapStateToProps, {updateNewItemForm, createItem})(NewItemForm);
+export default connect(mapStateToProps, {updateItemForm, createItem})(ItemForm);
