@@ -11,7 +11,7 @@ const ItemCard = ({item}) => {
             <p>Value: {item.value}</p>
             <img src={item.image} alt=""/>
             <p>Sold By: {item.user.username}</p>
-            <p>Contact Seller At: {item.user.email}</p>
+            <p>Contact Seller At: <a href={"mailto:" + item.user.email}>{item.user.email}</a></p>
             <br/>
         </div> :
         <p>Item not found!</p>
