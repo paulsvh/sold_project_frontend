@@ -40,7 +40,7 @@ const ItemForm = ({itemFormData, updateItemForm, handleSubmit, item, editMode}) 
                 onChange={handleChange} 
                 value={itemFormData.value} 
                 />
-                <br/>
+                <br/><br/>
  
                 <input 
                 type="submit" 

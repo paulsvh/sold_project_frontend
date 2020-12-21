@@ -29,7 +29,8 @@ class EditItemFormWrapper extends React.Component {
     render() {
         const {history, deleteItem, item} = this.props
         const itemId = item ? item.id : null
-        return <>
+        return <>   
+                    <br/>
                     <ItemForm editMode handleSubmit={this.handleSubmit}/>
                     <br/>
                     <button style={{color: 'red'}} onClick={()=>deleteItem(itemId, history)}>Delete This Item</button>
