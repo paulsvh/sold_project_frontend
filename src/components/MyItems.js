@@ -8,7 +8,10 @@ const myItems = props => {
     props.items.map(item => <Link to={`/myitems/${item.id}`} key={item.id}>{item.title}<br/><br/></Link>) :
     null
     return(
-        itemCards
+        <div>
+            <h1>Your Current Items Listed:</h1>
+            {itemCards}
+        </div>
     )
 }
 
