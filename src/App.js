@@ -10,6 +10,8 @@ import SignUp from './components/SignUp.js'
 import Welcome from './components/Welcome.js'
 import ItemForm from './components/ItemForm.js'
 import ItemCard from './components/ItemCard.js'
+import NewItemFormWrapper from './components/NewItemFormWrapper.js';
+import EditItemFormWrapper from './components/EditItemFormWrapper.js';
 
 class App extends React.Component {
 
@@ -26,15 +28,15 @@ class App extends React.Component {
         <Route exact path='/signup' component={SignUp}/>
         <Route exact path='/login' component={Login}/>
         <Route exact path='/myitems' component={MyItems}/>
-        <Route exact path='/myitems/new' component={ItemForm}/>
+        <Route exact path='/myitems/new' component={NewItemFormWrapper}/>
         <Route exact path='/myitems/:id' render={props => {
           const item = myItems.find(item => item.id === parseInt(props.match.params.id))
           return <ItemCard item={item} {...props}/>
           }
         }/>
         <Route exact path='/myitems/:id/edit' render={props => {
-          const item = myItems.find(item => item.id === props.match.params.id)
-          return <ItemForm item={item} {...props}/>
+          const item = myItems.find(item => item.id === parseInt(props.match.params.id))
+          return <EditItemFormWrapper item={item} {...props}/>
           }
         }/>
         </Switch>

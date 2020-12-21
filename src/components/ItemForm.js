@@ -1,27 +1,21 @@
 import React from 'react';
-import {updateItemForm} from '../actions/ItemForm.js'
+import {updateItemForm} from '../actions/itemForm.js'
 import {connect} from 'react-redux'
-import {createItem} from '../actions/myItems.js'
 
 
-const ItemForm = ({itemFormData, updateItemForm, createItem, userId, history}) => {
+const ItemForm = ({itemFormData, updateItemForm, handleSubmit, item, editMode}) => {
    
     const handleChange = event => {
         const {name, value} = event.target
         updateItemForm(name, value)
     }
 
-    const handleSubmit = event => {
-        event.preventDefault()
-        createItem({
-            ...itemFormData,
-            userId,
-        }, history)
-    }
-
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={event => {
+                event.preventDefault()
+                handleSubmit(itemFormData)
+            }}>
                 <input 
                 placeholder="Item Listing Title"
                 name="title" 
@@ -48,7 +42,9 @@ const ItemForm = ({itemFormData, updateItemForm, createItem, userId, history}) =
                 />
                 <br/>
  
-                <input type="submit" value="Let's Sell This Thang!"/>
+                <input 
+                type="submit" 
+                value={editMode ? "Update This Item" : "Let's Sell This Thang!"}/>
             </form>
         </div>
 )}
@@ -61,4 +57,4 @@ const ItemForm = ({itemFormData, updateItemForm, createItem, userId, history}) =
         }
     }
 
-export default connect(mapStateToProps, {updateItemForm, createItem})(ItemForm);
+export default connect(mapStateToProps, {updateItemForm})(ItemForm);

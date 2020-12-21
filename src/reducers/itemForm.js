@@ -16,6 +16,8 @@ export default (state = initialState, action) => {
             return returnVal
         case "RESET_ITEM_FORM":
             return initialState
+        case "SET_FORM_DATA_FOR_EDIT":
+            return action.itemFormData
         default:
             return state
     }

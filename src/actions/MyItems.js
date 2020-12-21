@@ -1,4 +1,4 @@
-import {resetSignUpForm} from './signUpForm.js'
+import {resetItemForm} from './itemForm.js'
 
 
 export const setMyItems = items => {
@@ -17,6 +17,13 @@ export const clearItems = () => {
 export const addItem = item => {
     return {
         type: "ADD_ITEM",
+        item
+    }
+}
+
+export const updateItemSuccess = item => {
+    return {
+        type: "UPDATE_ITEM",
         item
     }
 }
@@ -65,8 +72,37 @@ export const createItem = (itemData, history) => {
                 alert(item.error)
               } else {
                 
-                dispatch(resetSignUpForm())
+                dispatch(resetItemForm())
                 dispatch(addItem(item))
+                history.push(`/myitems/${item.id}`)
+              }
+        })
+    }
+}
+
+export const updateItem = (itemData, history) => {
+    return dispatch => {
+        const sendableItemData = {
+            title: itemData.title,
+            description: itemData.description,
+            condition: itemData.condition,
+            value: itemData.value,
+        }
+        return fetch(`http://localhost:3001/api/items/${itemData.itemId}`, {
+            credentials: "include",
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(sendableItemData)
+        })
+        .then(r => r.json())
+        .then(item => {
+            if (item.error) {
+                alert(item.error)
+              } else {
+                
+                dispatch(updateItemSuccess(item))
                 history.push(`/myitems/${item.id}`)
               }
         })

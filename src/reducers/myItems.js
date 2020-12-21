@@ -6,6 +6,8 @@ export default (state = initialState, action) => {
             return action.items
         case "ADD_ITEM":
             return state.concat(action.item)
+        case "UPDATE_ITEM":
+            return state.map(item => item.id === action.item.id ? action.item : item)
         case "CLEAR_ITEMS":
             return initialState
         default:
