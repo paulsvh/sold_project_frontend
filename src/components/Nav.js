@@ -9,6 +9,7 @@ const Nav = ({currentUser}) => {
             Welcome, {currentUser.username}.
             <NavLink exact activeClassName="active" to="/myitems">My Items</NavLink>
             <NavLink exact activeClassName="active" to="/myitems/new">Add A New Item</NavLink>
+            <NavLink exact activeClassName="active" to="/browse">Browse Items For Sale</NavLink>
             <Logout/>
         </div>
     )

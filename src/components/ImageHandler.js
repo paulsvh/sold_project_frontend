@@ -17,8 +17,8 @@ class ImageHandler extends React.Component {
     imageUploadHandler = event => {
         event.preventDefault();
         const attachedImg = ({image: this.state.image, user_id: this.userId})
-        fetch("http://localhost:3001/api/items", {
-            method: "POST",
+        fetch(`http://localhost:3001/api/items/${this.props.item.id}`, {
+            method: "PATCH",
             body: attachedImg
         })
         .catch(error => console.log(error))

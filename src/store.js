@@ -5,13 +5,15 @@ import loginForm from './reducers/loginForm.js'
 import myItems from './reducers/myItems'
 import signUpForm from './reducers/signUpForm.js'
 import itemForm from './reducers/itemForm.js'
+import allItems from './reducers/allItems'
 
 const reducer = combineReducers({
     currentUser,
     loginForm,
     signUpForm,
     myItems,
-    itemForm
+    itemForm,
+    allItems
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

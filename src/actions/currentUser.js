@@ -1,6 +1,7 @@
 import {resetLoginForm} from './loginForm.js'
 import {resetSignUpForm} from './signUpForm.js'
 import {getMyItems, clearItems} from './myItems.js'
+import {getAllItems} from './allItems.js'
 
 export const setCurrentUser = user => {
     return {
@@ -32,6 +33,7 @@ export const login = (credentials, history) => {
             } else {
                 dispatch(setCurrentUser(user))
                 dispatch(getMyItems())
+                dispatch(getAllItems())
                 dispatch(resetLoginForm())
                 history.push('/myitems')
             }
@@ -60,6 +62,7 @@ export const signUpRequest = (credentials, history) => {
           } else {
             dispatch(setCurrentUser(user))
             dispatch(getMyItems())
+            dispatch(getAllItems())
             dispatch(resetSignUpForm())
             history.push('/')
 
@@ -85,6 +88,7 @@ export const getCurrentUser = () => {
             } else {
                 dispatch(setCurrentUser(user))
                 dispatch(getMyItems())
+                dispatch(getAllItems())
 
             }
         })
