@@ -28,6 +28,13 @@ export const updateItemSuccess = item => {
     }
 }
 
+export const deleteItemSuccess = itemId => {
+    return {
+        type: "DELETE_ITEM",
+        itemId
+    }
+}
+
 export const getMyItems = () => {
     return dispatch => {
         return fetch("http://localhost:3001/api/items", {
@@ -104,6 +111,28 @@ export const updateItem = (itemData, history) => {
                 
                 dispatch(updateItemSuccess(item))
                 history.push(`/myitems/${item.id}`)
+              }
+        })
+    }
+}
+
+export const deleteItem = (itemId, history) => {
+    return dispatch => {
+        return fetch(`http://localhost:3001/api/items/${itemId}`, {
+            credentials: "include",
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json"
+            }
+        })
+        .then(r => r.json())
+        .then(item => {
+            if (item.error) {
+                alert(item.error)
+              } else {
+                
+                dispatch(deleteItemSuccess(itemId))
+                history.push(`/myitems`)
               }
         })
     }

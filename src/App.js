@@ -8,7 +8,6 @@ import Login from './components/Login.js'
 import MyItems from './components/MyItems.js'
 import SignUp from './components/SignUp.js'
 import Welcome from './components/Welcome.js'
-import ItemForm from './components/ItemForm.js'
 import ItemCard from './components/ItemCard.js'
 import NewItemFormWrapper from './components/NewItemFormWrapper.js';
 import EditItemFormWrapper from './components/EditItemFormWrapper.js';
