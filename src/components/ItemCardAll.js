@@ -11,6 +11,8 @@ const ItemCard = ({item}) => {
             <p>Condition: {item.condition}</p>
             <p>Value: {item.value}</p>
             <img src={item.image} alt=""/>
+            <p>Sold By: {item.user.username}</p>
+            <p>Contact Seller At: {item.user.email}</p>
             <br/>
         </div> :
         <p>Item not found!</p>
