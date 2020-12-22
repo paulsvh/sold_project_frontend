@@ -1,16 +1,18 @@
 import React from 'react';
 import './App.css';
-import {connect} from 'react-redux'
-import {getCurrentUser} from './actions/currentUser.js'
-import Nav from './components/Nav.js'
-import {Route, Switch, withRouter} from 'react-router-dom'
-import Login from './components/Login.js'
-import MyItems from './components/MyItems.js'
-import AllItems from './components/AllItems.js'
-import SignUp from './components/SignUp.js'
-import Welcome from './components/Welcome.js'
-import ItemCard from './components/ItemCard.js'
-import ItemCardAll from './components/ItemCardAll.js'
+import {connect} from 'react-redux';
+import {getCurrentUser} from './actions/currentUser.js';
+import Header from './components/Header.js';
+import Footer from './components/Footer.js';
+import Nav from './components/Nav.js';
+import {Route, Switch, withRouter} from 'react-router-dom';
+import Login from './components/Login.js';
+import MyItems from './components/MyItems.js';
+import AllItems from './components/AllItems.js';
+import SignUp from './components/SignUp.js';
+import Welcome from './components/Welcome.js';
+import ItemCard from './components/ItemCard.js';
+import ItemCardAll from './components/ItemCardAll.js';
 import NewItemFormWrapper from './components/NewItemFormWrapper.js';
 import EditItemFormWrapper from './components/EditItemFormWrapper.js';
 
@@ -23,7 +25,9 @@ class App extends React.Component {
     const {loggedIn, myItems, allItems} = this.props
     return (
       <div className="App">
+        <Header />
         {loggedIn ? <Nav/> : null}
+        <body>
         <Switch>
         <Route exact path='/' render={()=> loggedIn ? '' : <Welcome/>}/>
         <Route exact path='/signup' component={SignUp}/>
@@ -47,6 +51,8 @@ class App extends React.Component {
           }
         }/>
         </Switch>
+        <Footer />
+        </body>
       </div>
     )
   }
