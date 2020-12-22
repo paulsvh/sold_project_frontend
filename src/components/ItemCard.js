@@ -9,10 +9,11 @@ const ItemCard = ({item, history, deleteItem}) => {
     return(
         item ?
         <div>
-            <p>Title: {item.title}</p>
-            <p>Description: {item.description}</p>
-            <p>Condition: {item.condition}</p>
-            <p>Value: {item.value}</p>
+            <br/>
+            <p><i>Title:</i> {item.title}</p>
+            <p><i>Description:</i> {item.description}</p>
+            <p><i>Condition:</i> {item.condition}</p>
+            <p><i>Value:</i> {item.value}</p>
             <img src={item.image} alt=""/>
             <Link to={`/myitems/${item.id}/edit`}>Edit This Item</Link>
             <br/><br/>
