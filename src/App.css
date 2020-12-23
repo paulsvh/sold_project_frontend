@@ -3,17 +3,6 @@
 
   }
 
-  .App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-  }
-  
   #loggedin {
     font-size: 7px;
   }
@@ -41,11 +30,12 @@
     flex-direction: column;
     align-items: center;
     background:  #36c4eb;
-    color: white;
+    color: rgb(242, 246, 0);
     font-size: 28px;
     max-height: 20vh;
     justify-content: center;
     padding-bottom: 10px;
+    text-shadow: 2px 2px 8px #FF0000
   }
 
   .footer {
@@ -56,6 +46,8 @@
     text-align: center;
     background-color: #e6b782;
     color: white;
+    text-shadow: 2px 2px 8px #FF0000
+
   }
 
   body {
